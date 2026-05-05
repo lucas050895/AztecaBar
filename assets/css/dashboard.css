@@ -1,0 +1,114 @@
+/**
+ * SISTEMA AZTECA - DASHBOARD STYLES
+ * Centralización de estilos administrativos y layout modular.
+ */
+
+
+@import url(general.css);
+
+
+/* Header & Navegación */
+.admin-header { 
+    background: #2c3e50; 
+    color: #fff; 
+    padding: 15px 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.brand { 
+    font-size: 1.4em; 
+    font-weight: bold; 
+    letter-spacing: 1px;
+}
+
+.brand-sub { 
+    font-weight: 300; 
+    color: #bdc3c7;
+}
+
+
+.logout-link { 
+    color: #fff; 
+    text-decoration: none; 
+    background: #e74c3c; 
+    padding: 8px 18px; 
+    border-radius: 5px; 
+    transition: background 0.3s ease;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.logout-link:hover { 
+    background: #c0392b; 
+}
+
+/* Layout Principal */
+.main-content { 
+    max-width: 1100px; 
+    margin: 50px auto; 
+    padding: 0 20px; 
+}
+
+
+/* Grid de Acceso Directo */
+.grid-admin { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
+
+/* Tarjetas Administrativas */
+.admin-card { 
+    background: #fff; 
+    padding: 35px 25px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    text-align: center; 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12); 
+}
+
+.admin-card h2 {
+    font-size: 1.1em;
+    color: #7f8c8d;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.admin-card p {
+    color: #95a5a6;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.val { 
+    font-size: 3.5em; 
+    font-weight: 900; 
+    margin: 15px 0; 
+}
+
+/* Variaciones de Color por Contexto */
+.card-productos,
+.card-mesas,
+.card-barriles { border-bottom: 5px solid #e67e22; }
+
+.card-productos .val,
+.card-mesas .val,
+.card-barriles .val  { color: #e67e22; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-header { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; }
+    .main-content { margin: 30px auto; }
+}

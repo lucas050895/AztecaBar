@@ -1,0 +1,129 @@
+/**
+ * SISTEMA AZTECA - HOJA DE ESTILOS PARA IMPRESIÓN (COMANDAS/TICKETS)
+ * Diseño optimizado para impresoras térmicas de 80mm.
+ * El enfoque principal es el alto contraste y la jerarquía visual para lectura rápida en cocina/barra.
+ */
+
+
+ @import url(general.css);
+
+
+ 
+/* ==========================================================================
+   1. RESET DE PÁGINA VIRTUAL
+   Eliminamos márgenes del navegador para evitar saltos de página accidentales.
+   ========================================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Asegura que el contenido use el ancho total del rollo */
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif; /* Fuentes estándar para evitar errores de renderizado en spooler */
+}
+
+/* ==========================================================================
+   2. CONTENEDOR PRINCIPAL DEL TICKET
+   Definimos el ancho físico basado en el estándar de 80mm (dejando margen de seguridad).
+   ========================================================================== */
+.ticket { 
+    width: 72mm;      /* Ancho efectivo de impresión para evitar recortes en los bordes */
+    margin: 0 auto;   /* Centrado preventivo */
+    padding: 2mm; 
+    box-sizing: border-box;
+    text-align: center; 
+}
+
+/* ==========================================================================
+   3. CABECERA E IDENTIFICACIÓN (HEADER)
+   El foco está en el número de mesa para que el personal identifique el destino al instante.
+   ========================================================================== */
+.header { 
+    text-align: center; 
+    width: 100%;
+}
+
+.title { 
+    font-size: 14pt; 
+    font-weight: bold; 
+    text-transform: uppercase;
+}
+
+/* Caja de identificación de Mesa: Máxima prioridad visual */
+.mesa-box { 
+    font-size: 32pt; /* Tamaño XL para visibilidad a distancia en cocina */
+    font-weight: bold; 
+    margin: 10px auto; 
+    border: 4px solid #000; 
+    display: inline-block; 
+    padding: 5px 15px;
+    width: 90%; 
+}
+
+/* Separador visual de alto contraste */
+.line { 
+    border: none;
+    border-top: 2px dashed #000; 
+    margin: 15px 0; 
+    width: 100%;
+}
+
+/* ==========================================================================
+   4. DETALLE DEL PEDIDO (BODY)
+   Estructura tabular optimizada para lectura de columnas "Cantidad | Producto".
+   ========================================================================== */
+table {
+    width: 100%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Columna de cantidad: Resaltada para evitar errores de despacho */
+.qty { 
+    font-size: 20pt; 
+    font-weight: bold; 
+    width: 50px; 
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Nombre del producto: En mayúsculas para mejorar la legibilidad bajo luz de cocina */
+.item-name { 
+    font-size: 14pt; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    vertical-align: middle;
+    padding: 5px 0;
+}
+
+/* Información secundaria (Subcategoría/Notas) */
+.subcat { 
+    font-size: 10pt; 
+    font-weight: normal; 
+    display: block;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   5. PIE DE TICKET (FOOTER)
+   Cierre y espacio de seguridad para la cuchilla (Autocut).
+   ========================================================================== */
+.footer { 
+    text-align: center; 
+    font-size: 11pt; 
+    margin-top: 25px; 
+    border-top: 1px solid #000; 
+    padding-top: 10px;
+    padding-bottom: 35px; /* Margen de salida para que el texto no quede atrapado tras el corte */
+}
+
+/* ==========================================================================
+   6. CONFIGURACIÓN DE IMPRESIÓN (DRIVER BROWSER)
+   Forzamos al motor de impresión del navegador a respetar el ancho del rollo.
+   ========================================================================== */
+@media print {
+    @page { 
+        margin: 0; 
+        size: 80mm auto; /* Define el ancho del papel térmico estándar */
+    }
+}

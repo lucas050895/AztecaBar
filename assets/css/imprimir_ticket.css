@@ -1,0 +1,115 @@
+/**
+ * SISTEMA AZTECA - HOJA DE ESTILOS: TICKET DE CLIENTE (CAJA)
+ * Ubicación: assets/css/imprimir_ticket.css
+ * * Diseñado para ticketeras térmicas estándar de 80mm.
+ * A diferencia de la comanda, aquí se prioriza la legibilidad de precios y totales.
+ */
+
+/* ==========================================================================
+   1. CONFIGURACIÓN DE PÁGINA Y CUERPO (HARDWARE)
+   ========================================================================== */
+@page {
+    /* Define el ancho físico del papel. 'auto' permite que el largo crezca según el pedido */
+    size: 80mm auto;
+    margin: 0;
+}
+
+body {
+    width: 80mm;
+    margin: 0;
+    padding: 5px;
+    /* Courier New es la fuente estándar POS por excelencia: monoespaciada para alinear columnas */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+    color: #000;
+}
+
+/* ==========================================================================
+   2. CABECERA (BRANDING)
+   ========================================================================== */
+.header {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Nombre del establecimiento con mayor jerarquía visual */
+.header > .system {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA DE TABLA DE PRODUCTOS
+   Layout de 3 columnas: Cantidad | Descripción | Precio
+   ========================================================================== */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 10px 0;
+}
+
+/* Columna Cantidad: Ancho fijo pequeño */
+.qty { 
+    width: 15%; 
+    font-weight: bold; 
+    vertical-align: top; 
+}
+
+/* Columna Descripción: Ocupa el mayor espacio disponible */
+.item { 
+    width: 55%; 
+    text-align: left; 
+    text-transform: uppercase; /* Facilita la lectura rápida */
+}
+
+/* Columna Precio: Alineada a la derecha para facilitar la suma visual */
+.price { 
+    width: 30%; 
+    text-align: right; 
+    vertical-align: top; 
+}
+
+/* ==========================================================================
+   4. TOTALES Y SEPARADORES
+   ========================================================================== */
+.text-right { text-align: right; }
+
+/* Línea de corte visual (estilo ticket clásico) */
+.separador { 
+    border-top: 1px dashed black; 
+    margin: 10px 0; 
+}
+
+/* El Total debe ser lo más legible del ticket */
+.total { 
+    font-size: 18pt; 
+    font-weight: bold; 
+    display: block;
+    margin: 10px 0;
+}
+
+/* ==========================================================================
+   5. PIE DE TICKET (FOOTER)
+   ========================================================================== */
+.thanks {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Nota legal: Indica que el documento no es una factura válida fiscalmente */
+.invalid {
+    margin: 10px auto 30px; /* Margen inferior extra para evitar corte de papel sobre el texto */
+    text-align: center;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+/* ==========================================================================
+   6. UTILIDADES DE IMPRESIÓN
+   ========================================================================== */
+@media print {
+    /* Oculta elementos de la interfaz web (botones, barras) al imprimir */
+    .no-print { 
+        display: none;
+    }
+}

@@ -1,0 +1,93 @@
+/**
+ * AZTECA BAR - Estilos para Ticket de Cierre de Cuenta
+ * Optimizado para visualización en pantalla e impresión térmica.
+ */
+
+/* Estilos para visualización en navegador */
+
+
+@import url(general.css);
+
+
+.ticket-container {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.btn-volver {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Configuración de impresión */
+@media print {
+    body {
+        background: #fff;
+        padding: 0;
+    }
+    
+    .btn-volver {
+        display: none;
+    }
+
+    .ticket-container {
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    @page {
+        size: 80mm auto;
+        margin: 0;
+    }
+}
+
+/* Elementos del Ticket */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.separador {
+    border-top: 1px dashed #000;
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+td {
+    padding: 5px 0;
+}
+
+.total-seccion {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.footer-ticket {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.4;
+}

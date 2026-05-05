@@ -1,0 +1,299 @@
+/**
+ * SISTEMA AZTECA - HOJA DE ESTILOS: GESTIÓN DE PEDIDOS (POS)
+ */
+
+@import url("general.css");
+
+/* Reset básico para evitar desbordamientos */
+* { box-sizing: border-box; }
+body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+
+/* ==========================================================================
+   1. ESTRUCTURA PRINCIPAL (SPLIT VIEW)
+   ========================================================================== */
+.container { 
+    display: flex; 
+    height: 100vh; 
+    width: 100%;
+    overflow: hidden; 
+    background-color: #f4f4f4;
+}
+
+/* ==========================================================================
+   2. PANEL IZQUIERDO: CATÁLOGO Y MENÚ
+   ========================================================================== */
+.menu-seccion { 
+    flex: 2; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    background: #fff; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.titulo-entidad {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.direccion-delivery-box {
+    background: #fff3e0; 
+    padding: 12px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ffb74d;
+}
+
+.label-delivery {
+    font-weight: bold; 
+    color: #e65100; 
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-delivery {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ffb74d; 
+    border-radius: 4px; 
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.tabs-header { 
+    display: flex; 
+    border-bottom: 2px solid #eee; 
+    margin-bottom: 15px; 
+}
+
+.tab-btn { 
+    flex: 1; 
+    padding: 15px 10px; 
+    border: none; 
+    background: #f8f8f8; 
+    cursor: pointer; 
+    font-weight: bold; 
+    border-radius: 8px 8px 0 0; 
+    margin-right: 4px; 
+    transition: all 0.2s ease;
+    color: #666;
+}
+
+.tab-btn.active { 
+    background: #d32f2f; 
+    color: white; 
+}
+
+.tab-content { 
+    display: none; 
+    overflow-y: auto; 
+    flex-grow: 1; 
+    padding-top: 10px;
+}
+
+.productos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    gap: 12px; 
+}
+
+.card-prod { 
+    background: #fff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 10px; 
+    padding: 15px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.1s, border-color 0.2s; 
+}
+
+.card-prod:active { transform: scale(0.95); }
+.card-prod:hover { border-color: #d32f2f; background: #fffcfc; }
+
+.precio-tag {
+    display: block;
+    margin-top: 5px;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   3. PANEL DERECHO: RESUMEN DE PEDIDO (CHECKOUT)
+   ========================================================================== */
+.pedido-seccion { 
+    flex: 1; 
+    background: #fdfdfd; 
+    border-left: 1px solid #ddd; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+    box-sizing: border-box;
+}
+
+.titulo-resumen {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 0;
+}
+
+#lista-items { 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    margin-bottom: 10px;
+}
+
+.item-row { 
+    padding: 12px 0; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.item-row-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+}
+
+.item-status-container {
+    display: block;
+}
+
+.item-controls { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    justify-content: flex-end; 
+}
+
+.input-cant { 
+    width: 55px; 
+    padding: 6px; 
+    text-align: center; 
+    border-radius: 4px; 
+    border: 1px solid #ccc; 
+    font-weight: bold; 
+}
+
+.subtotal-item {
+    min-width: 85px;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.btn-x { 
+    background: #ffebee; 
+    color: #c62828; 
+    border: none; 
+    border-radius: 4px; 
+    width: 28px; 
+    height: 28px; 
+    cursor: pointer; 
+}
+
+.status-badge { 
+    font-size: 0.65rem; 
+    padding: 2px 6px; 
+    border-radius: 10px; 
+    text-transform: uppercase;
+    display: inline-block;
+}
+.status-pendiente { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+.status-impreso { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+
+/* ==========================================================================
+   4. TOTALES Y ACCIONES FINALIZADORAS
+   ========================================================================== */
+.footer-pedido {
+    border-top: 3px double #ddd;
+    padding-top: 10px;
+}
+
+#total-pedido { 
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    text-align: right; 
+    padding: 5px 0; 
+    color: #d32f2f; 
+}
+
+.btn-accion { 
+    width: 100%; 
+    padding: 14px; 
+    border: none; 
+    border-radius: 8px; 
+    color: white; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin-top: 6px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bg-volver { background: #607d8b; }
+.bg-cocina { background: #ff9800; }
+.bg-finalizar { background: #2e7d32; }
+
+.filtro-subcat { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+}
+
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Responsive Fix)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body { padding: 0; margin: 0; }
+    
+    .container {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .menu-seccion, 
+    .pedido-seccion {
+        flex: none;
+        width: 100% !important;
+        padding: 15px; /* Padding interno controlado */
+        margin: 0 !important;
+        box-shadow: none;
+    }
+
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .tabs-header {
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        padding-bottom: 5px;
+    }
+
+    .tab-btn {
+        flex: 0 0 auto;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+}

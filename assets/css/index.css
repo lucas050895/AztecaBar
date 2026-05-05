@@ -1,0 +1,244 @@
+/**
+ * SISTEMA AZTECA - HOJA DE ESTILOS: PANEL PRINCIPAL (DASHBOARD)
+ * Arquitectura: Basada en CSS Grid y Componentes Modulares.
+ * Objetivo: Centralizar la identidad visual del salón y el control logístico.
+ */
+
+
+@import url("general.css");
+
+/* ==========================================================================
+   1. COMPONENTES DE ENCABEZADO
+   ========================================================================== */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header-title {
+    width: 100%;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.header-spacer { width: 50px; }
+
+h2 {
+    color: #222;
+    padding-left: 15px;
+    margin: 30px 15px 15px 15px;
+    border-left: 5px solid #e67e22;
+    font-size: 1.4rem;
+}
+
+/* ==========================================================================
+   2. SISTEMA DE REJILLA (MESAS Y BARRILES)
+   ========================================================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.mesa {
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block; 
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mesa:active { transform: scale(0.95); }
+
+.libre { background-color: #2ecc71; border-bottom: 4px solid #27ae60; } 
+.ocupada { background-color: #e74c3c; border-bottom: 4px solid #c0392b; }
+
+/* ==========================================================================
+   3. GESTIÓN DE DATOS Y TABLAS (DELIVERY)
+   ========================================================================== */
+.contenedor-delivery { 
+    padding: 15px; 
+    margin-top: 10px; 
+}
+
+.delivery-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-nuevo-delivery {
+    padding: 10px 20px; 
+    background: #000; 
+    color: #fff; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tabla-azteca { 
+    width: 100%; 
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tabla-azteca th { 
+    background: #222; 
+    color: #fff; 
+    padding: 15px; 
+    text-align: left; 
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.tabla-azteca td { 
+    padding: 15px; 
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.btn-editar { 
+    background: #2196F3; 
+    color: white; 
+    padding: 8px 16px; 
+    text-decoration: none; 
+    border-radius: 6px; 
+    font-size: 0.85rem; 
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-mobile-only { display: none; }
+
+/* Indicadores Visuales (Badges) */
+.badge-wa { background: #25D366; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.75rem; }
+.badge-pya { background: #E21221; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.75rem; }
+
+/* Estados de Pedido */
+.status-indicator { margin-right: 5px; font-size: 1.1rem; vertical-align: middle; }
+.estado-pendiente { color: #f39c12 !important; font-weight: bold; }
+.estado-cocina { color: #27ae60 !important; font-weight: bold; }
+
+/* ==========================================================================
+   4. UI COMPONENTS: MODALES
+   ========================================================================== */
+.modal-azteca { 
+    position: fixed; top:0; left:0; width:100%; height:100%; 
+    background:rgba(0,0,0,0.85); display:none; justify-content:center; 
+    align-items:center; z-index:2000; 
+}
+
+.modal-content { 
+    background:white; 
+    padding:30px; 
+    border-radius:15px; 
+    text-align:center; 
+    width: 85%;
+    max-width: 380px; 
+}
+
+.btn-modal { 
+    padding: 15px; 
+    border: none; 
+    margin: 10px 0; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: white; 
+    width: 100%; 
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.bg-whatsapp { background-color: #25D366 !important; }
+.bg-pedidosya { background-color: #E21221 !important; }
+.bg-cancel { background-color: #777 !important; }
+.bg-azteca { background-color: #e67e22 !important; }
+
+/* ==========================================================================
+   5. MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-title { font-size: 1.4rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+    /* Transformación de tabla a sistema de tarjetas móviles */
+    .tabla-azteca thead { display: none; }
+    .tabla-azteca { padding: 15px; }
+    .tabla-azteca, .tabla-azteca tbody, .tabla-azteca tr, .tabla-azteca td { 
+        display: block; 
+        width: 100%; 
+        border: none;
+    }
+
+    .fila-pedido {
+        background: #fff;
+        margin: 0 auto 20px auto;
+        width: 94%;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        box-sizing: border-box;
+    }
+
+    .tabla-azteca td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    .tabla-azteca td:last-child { border-bottom: none; }
+
+    .td-id-gestion {
+        border-bottom: 2px solid #f4f7f6 !important;
+        margin-bottom: 12px;
+        padding-bottom: 18px !important;
+        padding-top: 0 !important;
+    }
+
+    .btn-mobile-only { 
+        display: block; 
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    .td-desktop-only { display: none !important; }
+
+    .tabla-azteca td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #aaa;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .td-id-gestion::before { content: "PEDIDO"; }
+
+    td[data-label="Total"] strong {
+        font-size: 1.2rem;
+        color: #000;
+    }
+
+    .modal-content { padding: 20px; }
+}

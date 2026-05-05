@@ -1,0 +1,177 @@
+/**
+ * SISTEMA AZTECA - GESTIÓN DE PRODUCTOS
+ * Estilos consolidados para administración de inventario y precios masivos.
+ */
+
+@import url(general.css);
+
+
+/* Layout Principal */
+.container { 
+    padding: 30px; 
+    max-width: 1200px; 
+    margin: auto; 
+    font-family: sans-serif;
+}
+
+.header-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+/* Navegación por Pestañas */
+.tabs-admin { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    border-bottom: 2px solid #ddd; 
+    padding-bottom: 10px; 
+}
+
+.tab-item { 
+    padding: 10px 25px; 
+    cursor: pointer; 
+    background: #f0f0f0; 
+    border-radius: 8px 8px 0 0; 
+    font-weight: bold; 
+    color: #666; 
+    transition: 0.3s; 
+}
+
+.tab-item.active { 
+    background: #fb8c00; 
+    color: white; 
+}
+
+/* Buscador */
+.search-container { margin-bottom: 20px; }
+.search-input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 2px solid #e67e22; 
+    border-radius: 8px; 
+    font-size: 1em; 
+    outline: none; 
+}
+.search-input:focus { border-color: #2c3e50; }
+
+/* Tabla de Datos */
+.tabla-prod { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: #fff; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.tabla-prod th { 
+    background: #2c3e50; 
+    color: #fff; 
+    padding: 15px; 
+    text-align: left; 
+}
+
+.tabla-prod td { 
+    padding: 12px 15px; 
+    border-bottom: 1px solid #eee; 
+}
+
+.cat-tag { 
+    background: #ebedef; 
+    padding: 3px 8px; 
+    border-radius: 4px; 
+    font-size: 0.8em; 
+    color: #5d6d7e; 
+    font-weight: bold; 
+}
+
+/* Botones de Acción */
+.btn-add { 
+    background: #27ae60; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+
+.btn-edit { background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+.btn-del { background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+
+/* Módulo de Precios Masivos (Card Promo) */
+.card-promo { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    max-width: 500px; 
+    margin: 20px 0; 
+}
+
+.card-promo h2 { 
+    color: #e65100; 
+    margin-top: 0; 
+    border-bottom: 2px solid #ffb74d; 
+    padding-bottom: 10px; 
+}
+
+.btn-update-all { 
+    background: #fb8c00; 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    width: 100%; 
+    cursor: pointer; 
+    font-weight: bold; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    margin-top: 20px; 
+}
+
+/* Alertas de Estado */
+.alerta-promo { padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
+.alerta-ok { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alerta-err { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* Formularios y Modales */
+.form-group { margin-bottom: 15px; }
+.form-group label { 
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: #2c3e50; 
+}
+
+.form-group input, 
+.form-group select { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    font-size: 14px;
+}
+
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+}
+
+.modal-content { 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 10px; 
+    width: 400px; 
+}

@@ -1,0 +1,75 @@
+/**
+ * AZTECA BAR - Estilos para Impresión de Comandas
+ * Configuración optimizada para impresoras térmicas (Point of Sale)
+ */
+
+
+@import url(general.css);
+
+
+@page {
+    /* Define el ancho del rollo de papel y permite altura dinámica */
+    size: 80mm auto;
+    margin: 0;
+}
+
+body {
+    width: 80mm;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+    line-height: 1.2;
+    color: #000;
+}
+
+/* Ajustes específicos para el proceso de impresión */
+@media print {
+    body {
+        width: 80mm;
+    }
+    .no-print {
+        display: none;
+    }
+}
+
+.ticket {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.centrado {
+    text-align: center;
+}
+
+/* Línea de corte o división visual */
+.separador {
+    border-top: 1px dashed #000;
+    margin: 10px 0;
+}
+
+/* Estructura de la lista de productos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.qty {
+    width: 20%;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.item {
+    width: 80%;
+    text-align: left;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+/* Detalle de subcategoría debajo del nombre del producto */
+.subcategoria {
+    font-size: 11pt;
+    display: block;
+    text-transform: none;
+}

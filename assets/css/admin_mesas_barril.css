@@ -1,0 +1,157 @@
+@import url(general.css);
+
+
+/* --- Estructura General --- */
+.container { 
+    padding: 40px; 
+    max-width: 1200px; 
+    margin: auto; 
+    font-family: sans-serif; 
+}
+
+.header-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+
+/* --- Grid Universal (Mesas y Barriles) --- */
+.grid-mesas, 
+.grid-barriles { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+    gap: 20px; 
+}
+
+/* --- Caja de Item (Mesa o Barril) --- */
+.mesa-box, 
+.barril-box { 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 12px; 
+    text-align: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+}
+
+.mesa-box:hover, 
+.barril-box:hover { 
+    transform: translateY(-3px); 
+}
+
+/* --- Tipografía --- */
+.mesa-num, 
+.barril-num { 
+    font-size: 2.2em; 
+    font-weight: bold; 
+    display: block; 
+    color: #2c3e50; 
+}
+
+/* --- Estados (Colores compartidos) --- */
+.status { 
+    display: inline-block; 
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    font-size: 0.75em; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin: 10px 0;
+}
+
+.libre { 
+    background: #d4edda; 
+    color: #155724; 
+}
+
+.ocupada, 
+.ocupado { 
+    background: #f8d7da; 
+    color: #721c24; 
+}
+
+/* --- Acciones y Botones --- */
+.mesa-actions, 
+.actions { 
+    margin-top: 15px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 8px; 
+    border-top: 1px solid #f5f5f5;
+    padding-top: 15px;
+}
+
+.btn-mini { 
+    border: none; 
+    padding: 10px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    color: white; 
+    transition: opacity 0.2s;
+}
+
+.btn-mini:hover { opacity: 0.8; }
+.btn-edit { background: #3498db; }
+.btn-del { background: #e74c3c; }
+
+/* --- Modales --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.6); 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+}
+
+.modal-content { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 12px; 
+    width: 350px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+    color: #2c3e50; 
+}
+
+.form-group input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+.btn-save { 
+    background: #fb8c00; 
+    color: white; 
+    width: 100%; 
+    padding: 14px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 16px; 
+}
+
+.btn-cancel { 
+    background: none; 
+    border: none; 
+    color: #7f8c8d; 
+    width: 100%; 
+    margin-top: 10px; 
+    cursor: pointer; 
+}
